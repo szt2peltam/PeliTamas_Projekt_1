@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Órarend</title>
+</head>
+<body>
+    <div class="modal not-visible">
+        <label for="from">Mettől: </label>
+        <input type="time" name="from" class="from">
+        <label for="to">Meddig: </label>
+        <input type="time" name="to" class="to">
+        <label for="lesson">Óranév</label>
+        <input type="text" class="lesson">
+        <div class="save">Mentés</div>
+    </div>
+    <h1>Órarend</h1>
+    <main>
+        <section class="day-container">
+            <div class="day-card">Hétfő</div>
+            <div class="day-card">Kedd</div>
+            <div class="day-card">Szerda</div>
+            <div class="day-card">Csütörtök</div>
+            <div class="day-card">Péntek</div>
+        </section>
+        <section class="todo-container">
+            <div class="day-todos-container" ><div class="button" data-DayIndex="0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg></div></div>
+            <div class="day-todos-container" ><div class="button"data-DayIndex="1" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg></div></div>
+            <div class="day-todos-container" ><div class="button"data-DayIndex="2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg></div></div>
+            <div class="day-todos-container" ><div class="button"data-DayIndex="3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg></div></div>
+            <div class="day-todos-container" ><div class="button"data-DayIndex="4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg></div></div>
+        </section>
+    </main>
+
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
