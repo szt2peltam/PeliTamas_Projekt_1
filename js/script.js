@@ -42,9 +42,9 @@ function AddNewToDo(dayIndex){
     console.log(dayIndex);
     DayContainers[dayIndex].insertAdjacentHTML("beforeend",`<div class="todo" data-ToDoCount="${ToDoCount}">
                                                             <div>
-                                                                <div>Mettől:</div>
+                                                                <div></div>
                                                                 <div id="from">00:00</div>
-                                                                <div>Meddig:</div>
+                                                                <div>--</div>
                                                                 <div id="to">24:00</div>
                                                             </div>
                                                             <div id="lesson">Óraneve</div>
