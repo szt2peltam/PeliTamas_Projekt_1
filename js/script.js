@@ -74,6 +74,12 @@ function ToDoClicked(ToDoNumber){
         this.removeEventListener("click", EventListener);
         CloseModal();
     })
+
+    DeleteBtn.addEventListener("click", function DeleteElement() {
+        Delete(ToDoNumber);
+        this.removeEventListener("click", DeleteElement);
+        CloseModal();
+    })
 }
 
 const FromInput = document.querySelector(".from");
@@ -98,3 +104,14 @@ function SaveData(ToDoNumber){
 }
 
 
+
+const DeleteBtn = document.querySelector(".delete")
+
+
+function Delete(ToDoNumber) {
+    ListOfTodoElements.forEach(element => {
+        if(element.dataset.todocount == ToDoNumber){
+            element.remove();
+        }
+});
+}
