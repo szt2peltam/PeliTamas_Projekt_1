@@ -34,21 +34,16 @@ function AddNewToDoElementToList(toDoNumber){
     a.addEventListener("click", (element) => {
         ToDoClicked(toDoNumber);
     })
-    console.log(a.childNodes[1].childNodes[7].innerText);
-    console.log(a.childNodes[3].innerText);
 }
 
 function AddNewToDo(dayIndex){
     console.log(dayIndex);
-    DayContainers[dayIndex].insertAdjacentHTML("beforeend",`<div class="todo" data-ToDoCount="${ToDoCount}">
-                                                            <div>
-                                                                <div></div>
-                                                                <div id="from">00:00</div>
-                                                                <div>--</div>
-                                                                <div id="to">24:00</div>
-                                                            </div>
-                                                            <div id="lesson">Óraneve</div>
-                                                            </div>`) ;
+    DayContainers[dayIndex].insertAdjacentHTML("beforeend",`        <div class="todo" data-ToDoCount="${ToDoCount}">
+                                                                        <div id="from">00:00</div>
+                                                                        <div id="lesson">Óraneve</div>
+                                                                        <div id="to">24:00</div>
+                                                                    </div>
+`) ;
 
 
     AddNewToDoElementToList(ToDoCount);
@@ -95,8 +90,9 @@ function SaveData(ToDoNumber){
 
     ListOfTodoElements.forEach(element => {
         if(element.dataset.todocount == ToDoNumber){
-            element.childNodes[1].childNodes[3].innerText = FromInput.value;
-            element.childNodes[1].childNodes[7].innerText = ToInput.value;
+            console.log(element.childNodes);
+            element.childNodes[1].innerText = FromInput.value;
+            element.childNodes[5].innerText = ToInput.value;
             element.childNodes[3].innerText = LessonInput.value;
         }
     });
