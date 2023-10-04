@@ -1,11 +1,4 @@
-class Todo{
 
-    constructor(){
-        this.from = "00:00";
-        this.to = "24:00";
-        this.lesson = "Óra"
-    }
-}
 
 
 let ListOfTodoElements = []
@@ -14,7 +7,8 @@ let ListOfTodoElements = []
 
 let ToDoCount = 0;
 
-const DayContainers = document.querySelectorAll(".day-todos-container");
+// const DayContainers = document.querySelectorAll(".day-todos-container");
+const DayContainers = document.querySelectorAll(".day-todos-container-2");
 const AddButtons = document.querySelectorAll(".button");
 const Modal = document.querySelector(".modal");
 
@@ -120,7 +114,13 @@ function SaveData(ToDoNumber){
             element.classList.add(`box-shadow-${colorInput}`)
             element.childNodes[1].innerText = FromInput.value;
             element.childNodes[5].innerText = ToInput.value;
-            element.childNodes[3].innerText = LessonInput.value;
+            if(LessonInput.value.length >= 14){
+                
+                element.childNodes[3].innerText = LessonInput.value.slice(0,11) + "...";
+            }else{
+
+                element.childNodes[3].innerText = LessonInput.value;
+            }
         }
     });
 

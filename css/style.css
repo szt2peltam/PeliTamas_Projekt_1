@@ -62,7 +62,7 @@ main{
 }
 .day-card{
     background-color: blue;
-    width: 100%;
+    flex-basis: 100%;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -86,8 +86,31 @@ main{
     
 }
 
+.button-container{
+    flex-basis: 25%;
+    border-radius: 7px;
+    width: 100%;
+    padding: 8px;
+    /* box-shadow: 4px 4px 2px var(--shadow-color); */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
+}
 .day-todos-container{
+    /* background-color: var(--card-bg-color);
+    border:2px solid var(--card--border-color); */
+    flex-basis: 25%;
+    border-radius: 7px;
+    width: 100%;
+    padding: 8px;
+    /* box-shadow: 4px 4px 2px var(--shadow-color); */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.day-todos-container-2{
     /* background-color: var(--card-bg-color);
     border:2px solid var(--card--border-color); */
     flex-basis: 25%;
@@ -128,7 +151,6 @@ svg{
 
 .todo{
     width: 100%;
-    height: 100px;
     /* border: 2px solid var(--card--border-color); */
     border-radius: 7px;
     background-color: var(--todo-bg-color);
@@ -378,3 +400,47 @@ input:focus{
     border: none;
     box-shadow: none;
 }
+
+
+@media screen and (max-width: 768px) {
+
+    main{
+        flex-direction: row !important;
+        height: 100vh;
+    }
+
+    .day-container{
+        flex-direction: column;
+        flex-basis: 14%;
+    }
+    .todo-container{
+        flex-direction: column;
+    }
+    .button{
+        height: 100%;
+    }
+
+    .todo-container-2{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .day-todos-container-2{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .todo{
+        min-width: 100px;
+        max-width: 120px;
+        max-height: 87.6px;
+    }
+  }
+
+
+  .todo-container-2{
+    display: flex;
+    gap: 10px;
+
+  }
