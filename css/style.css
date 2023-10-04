@@ -10,18 +10,23 @@
 :root{
     --font-style-bold : OpenSansBold;
     --font-style-light : OpenSansLight;
-
-
-
+    
     --body-bg-color:#222121;
+
     --card-bg-color:#201d1d;
+
     --button-bg-color:#201d1d;
+    
     --button-bg-color-hover:#2b2727;
+    
     --card--border-color:#000000;
     --icon-color:#3f3e3e;
+
+
     --text-color:#d3d4dae0;
+    
     /* --text-color: rgba(255, 255, 255, 0.877); */
-    --shadow-color:#4a4e69;
+    /* --shadow-color:#4a4e69; */
     --todo-shadow-color-1:rgba(0, 132, 255, 0.425);
     --todo-shadow-color-1-hover:rgb(0, 132, 255);
     --todo-shadow-color-4:rgba(128, 0, 255, 0.425);
@@ -30,16 +35,23 @@
     --todo-shadow-color-2-hover:rgb(255, 166, 0);
     --todo-shadow-color-3:rgba(0, 255, 21, 0.377);
     --todo-shadow-color-3-hover:rgb(0, 255, 21);
+
+
     --todo-bg-color:#26272b9a;
+
+
     --modal-bg-color:#4a4e694a;
 }
+*{
+    transition: background-color 0.2s linear;
 
+}
 body{
     background-color: var(--body-bg-color);
-    color:var(--text-color)
+    color:var(--text-color);
+    font-family: var(--font-style-bold);
 }
 h1{
-    font-family: var(--font-style-bold);
     text-align: center;
 }
 
@@ -47,7 +59,6 @@ main{
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: 100%;
 }
 .day-card{
     background-color: blue;
@@ -65,7 +76,6 @@ main{
     display: flex;
     gap: 10px;
     width: 100%;
-    font-family: var(--font-style-bold);
 
 }
 
@@ -84,7 +94,6 @@ main{
     border-radius: 7px;
     width: 100%;
     padding: 8px;
-    font-family: var(--font-style-bold);
     /* box-shadow: 4px 4px 2px var(--shadow-color); */
     display: flex;
     flex-direction: column;
@@ -155,7 +164,9 @@ svg{
     position: absolute;
     height: 100%;
     width: 100%;
-    transform: translateY(-2.8%) translateX(-0.6%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: var(--modal-bg-color);
     display: flex;
     align-items: center;
@@ -204,8 +215,8 @@ input[type="text"]{
 
 }
 input{
+    color: var(--text-color);
     font-family: var(--font-style-bold);
-    color: rgb(245, 238, 238);
 }
 input:focus{
     outline:0;
@@ -314,4 +325,56 @@ input:focus{
 .box-shadow-4:hover{
     box-shadow: 0px 0px 8px var(--todo-shadow-color-4-hover);
 
+}
+
+
+
+.box-shadow-1-white{
+    background-color: var(--todo-shadow-color-1-hover);
+}
+.box-shadow-1-white:hover{
+    border: 2px solid var(--card--border-color);
+}
+.box-shadow-2-white{
+    background-color: var(--todo-shadow-color-2-hover);
+
+}
+.box-shadow-2-white:hover{
+    border: 2px solid var(--card--border-color);
+}
+.box-shadow-3-white{
+    background-color: var(--todo-shadow-color-3-hover);
+
+}
+.box-shadow-3-white:hover{
+    border: 2px solid var(--card--border-color);
+}
+.box-shadow-4-white{
+    background-color: var(--todo-shadow-color-4-hover);
+
+}
+.box-shadow-4-white:hover{
+    border: 2px solid var(--card--border-color);
+}
+
+
+.tittle-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.theme-button{
+    cursor: pointer;
+    background-color: var(--button-bg-color);
+    padding: 10px;
+    border: 1px solid var(--card--border-color);
+    border-radius: 10px;
+}
+
+
+.white-todo{
+    background-color: none;
+    border: none;
+    box-shadow: none;
 }

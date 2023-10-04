@@ -138,3 +138,109 @@ function Delete(ToDoNumber) {
         }
 });
 }
+
+let theme = 1;
+
+let ThemeButton = document.querySelector(".theme-button");
+ThemeButton.addEventListener("click", ChangeTheme);
+var rootElement = document.querySelector(':root');
+
+/* --body-bg-color:#222121;
+
+    /* --card-bg-color:#201d1d; 
+
+    /* --button-bg-color:#201d1d; 
+    
+    /* --button-bg-color-hover:#2b2727; 
+
+        /* --text-color:#d3d4dae0; 
+
+
+        /* --modal-bg-color:#4a4e694a; 
+
+*/
+
+
+function ChangeTheme() {
+    theme % 2 == 0 ? theme-- : theme++
+    
+    if(theme == 2){
+        rootElement.style.setProperty("--body-bg-color","#ffffff");
+        rootElement.style.setProperty("--card-bg-color","#f8e9e9");
+        rootElement.style.setProperty("--button-bg-color","#f8e9e9");
+        rootElement.style.setProperty("--button-bg-color-hover","#a79f9f");
+        rootElement.style.setProperty("--text-color","#000000e0");
+        rootElement.style.setProperty("--modal-bg-color","#20212de6");
+
+        ListOfTodoElements.forEach(element => {
+            if(element.classList.contains("box-shadow-1")){
+                element.classList.add("white-todo")
+                element.classList.add("box-shadow-1-white")
+                element.classList.add("box-shadow-1-white-hover")
+            }
+            if(element.classList.contains("box-shadow-2")){
+                element.classList.add("white-todo")
+                element.classList.add("box-shadow-2-white")
+                element.classList.add("box-shadow-2-white-hover")
+
+
+            }
+            if(element.classList.contains("box-shadow-3")){
+                element.classList.add("white-todo")
+                element.classList.add("box-shadow-3-white")
+                element.classList.add("box-shadow-3-white-hover")
+
+
+            }
+            if(element.classList.contains("box-shadow-4")){
+                element.classList.add("white-todo")
+                element.classList.add("box-shadow-4-white")
+                element.classList.add("box-shadow-4-white-hover")
+
+
+            }
+        });
+
+
+    }else{
+        rootElement.style.setProperty("--body-bg-color","#222121");
+        rootElement.style.setProperty("--card-bg-color","#201d1d");
+        rootElement.style.setProperty("--button-bg-color","#201d1d");
+        rootElement.style.setProperty("--button-bg-color-hover","#2b2727");
+        rootElement.style.setProperty("--text-color","#d3d4dae0");
+        rootElement.style.setProperty("--modal-bg-color","#4a4e694a");
+
+
+        ListOfTodoElements.forEach(element => {
+            if(element.classList.contains("box-shadow-1")){
+                element.classList.remove("white-todo")
+                element.classList.remove("box-shadow-1-white")
+                element.classList.remove("box-shadow-1-white-hover")
+            }
+            if(element.classList.contains("box-shadow-2")){
+                element.classList.remove("white-todo")
+                element.classList.remove("box-shadow-2-white")
+                element.classList.remove("box-shadow-2-white-hover")
+
+
+            }
+            if(element.classList.contains("box-shadow-3")){
+                element.classList.remove("white-todo")
+                element.classList.remove("box-shadow-3-white")
+                element.classList.remove("box-shadow-3-white-hover")
+
+
+            }
+            if(element.classList.contains("box-shadow-4")){
+                element.classList.remove("white-todo")
+                element.classList.remove("box-shadow-4-white")
+                element.classList.remove("box-shadow-4-white-hover")
+
+
+            }
+        });
+
+
+
+    }
+}
