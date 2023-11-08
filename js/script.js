@@ -4,7 +4,6 @@
 let ListOfTodoElements = []
 
 
-
 let ToDoCount = 0;
 
 // const DayContainers = document.querySelectorAll(".day-todos-container");
@@ -12,7 +11,23 @@ const DayContainers = document.querySelectorAll(".day-todos-container-2");
 const AddButtons = document.querySelectorAll(".button");
 const Modal = document.querySelector(".modal");
 
+function addItemToLocalStorage(html, dayindex,todocount){
+    let a = {todo : html.outerHTML,
+            day : dayindex      ,
+            todocount : todocount      
+            }
 
+        console.log(a.todo);
+    localStorageTodos.push(a)
+    saveListToLocalStorage(localStorageTodos)
+}
+
+function saveListToLocalStorage(list) {
+
+    localStorage.setItem("todos", JSON.stringify(list))
+    console.log(localStorage);
+    
+}
 
 AddButtons.forEach(element => { element.addEventListener("click", (element) => {
     AddNewToDo(element.currentTarget.dataset.dayindex)
@@ -31,19 +46,26 @@ function AddNewToDoElementToList(toDoNumber){
 }
 
 function AddNewToDo(dayIndex){
-    console.log(dayIndex);
-    DayContainers[dayIndex].insertAdjacentHTML("beforeend",`        <div class="todo" data-ToDoCount="${ToDoCount}">
-                                                                        <div id="from">00:00</div>
-                                                                        <div id="lesson">Óraneve</div>
-                                                                        <div id="to">24:00</div>
-                                                                    </div>
-`) ;
+    let html =` <div class="todo" data-ToDoCount="${ToDoCount}" data-saveday="${dayIndex}"><div id="from">00:00</div><div id="lesson">Óraneve</div><div id="to">24:00</div></div>`;
+    DayContainers[dayIndex].insertAdjacentHTML("beforeend",html     
+    
+
+                                                            ) ;
 
 
     AddNewToDoElementToList(ToDoCount);
     ToDoCount++;
 }
+function AddNewToDo2(dayIndex, html,ToDoCount){
+    DayContainers[dayIndex].insertAdjacentHTML("beforeend",html     
+    
 
+                                                            ) ;
+
+
+    AddNewToDoElementToList(ToDoCount);
+    ToDoCount++;
+}
 function CloseModal(element, listener){
     Modal.classList.remove("visible");
     Modal.classList.add("not-visible");
@@ -110,17 +132,28 @@ function SaveData(ToDoNumber){
     ListOfTodoElements.forEach(element => {
         if(element.dataset.todocount == ToDoNumber){
             element.className = "";
+            console.log(element.childNodes);
             element.classList.add("todo")
             element.classList.add(`box-shadow-${colorInput}`)
-            element.childNodes[1].innerText = FromInput.value;
-            element.childNodes[5].innerText = ToInput.value;
+            element.childNodes[0].innerText = FromInput.value;
+            element.childNodes[2].innerText = ToInput.value;
             if(LessonInput.value.length >= 14){
                 
-                element.childNodes[3].innerText = LessonInput.value.slice(0,11) + "...";
+                element.childNodes[1].innerText = LessonInput.value.slice(0,11) + "...";
             }else{
 
-                element.childNodes[3].innerText = LessonInput.value;
+                element.childNodes[1].innerText = LessonInput.value;
             }
+            let haselement = false;
+            localStorageTodos.forEach(todos => {
+                if(todos.todocount == ToDoNumber){
+                    todos.todo = element.outerHTML;
+                    haselement = true;
+                    saveListToLocalStorage(localStorageTodos)
+                }
+            });
+            if(!haselement) addItemToLocalStorage(element,element.dataset.saveday,ToDoNumber);
+
         }
     });
 
@@ -243,4 +276,25 @@ function ChangeTheme() {
 
 
     }
+}
+let localStorageTodos;
+
+function init(){
+    if(localStorage.length == 0){
+        
+        localStorage.setItem("todos",JSON.stringify([]));
+        
+        
+    }
+    localStorageTodos = JSON.parse(localStorage.getItem("todos"));
+
+    if(localStorageTodos.length > 0){
+        localStorageTodos.forEach(element => {
+            AddNewToDo2(element.day,element.todo, element.todocount)
+            ToDoCount++
+            console.log(ToDoCount);
+
+        });
+    }
+
 }
